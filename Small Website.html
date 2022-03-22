@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Small Website</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script> <!--///No se si hac falta , diferencias entre descargar y usar cdn//-->
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+
+        $(document).ready(function(){
+            $("button").click(function(){
+                var username= $("#usr").val();
+                $.get("https://api.github.com/users/"+username, function(data, status){
+                    //alert("Data: " + data.login + "Bio:" + data.bio +"\nStatus: " + status);
+                    $("table").append("<tr><td>"+data.login+"</td><td>"+data.bio+"</td><td>"+data.followers+"</td></tr>")
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="jumbotron text-center">
+    <!--    <h1 class="display-1"> First bootstrap Page <small> DSA lectures</small> </h1>  Como se hace para tener en negrita el título y no el secundario? o solo sirve para headers-->
+    <h1>First bootstrap Page <small>DSA lectures</small></h1>
+    <p>Trying to improve my bootstrap and JQuery skills</p>
+    <h2></h2>
+</div>
+
+<div class="container-sm bg-primary text-white">
+    <div class="row">
+        <!--class="was-validated"-->
+        <div class="form-group">
+            <label for="usr">Github Username:</label>
+
+
+
+
+
+            <!--                <div class="valid-feedback">Valid.</div>-->
+            <!--                <div class="invalid-feedback">Please fill out this field with your github username.</div> &lt;!&ndash;// Cuando estara invalido en mi caso&ndash;&gt;-->
+        </div>
+        <div class="row">
+
+            <input type="text" class="form-control ml-5"  id="usr" name="username">
+        </div>
+        <div class="row">
+            <h1></h1>
+            <button type="button" class="btn btn-outline-light text-dark ml-5" id="boton" >Ready</button>
+
+        </div>
+        <div class="container">
+            <h1></h1>
+            <h2>Repository Information</h2>
+            <p>This table shows the repository selected</p>
+            <table class="table table-dark table-hover">
+                <thead>
+                <tr>
+                    <th>Username</th>
+                    <th>Bio</th>
+                    <th>Nº Followers</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr class="table-danger">
+
+                </tr>
+                </tbody>
+            </table>
+        </div>
+
+
+        <!--        <div class="col">-->
+        <!--            <h3>Introduce your gitehub Username below</h3>-->
+        <!--        </div>-->
+        <!--            <div class="col">-->
+        <!--                <h3> Don't know what to add here yet</h3>-->
+        <!--            </div>-->
+
+
+
+    </div>
+</div>
+
+
+<div class="container-fluid">
+    <div class="row">
+
+
+        <!--        <input type="button" class="btn btn-info btn-block" value="Show me the repositories"> &lt;!&ndash; No sé como centrarlo sin ocupar todo el anchura&ndash;&gt;-->
+
+
+    </div>
+</div>
+</body>
+</html>
